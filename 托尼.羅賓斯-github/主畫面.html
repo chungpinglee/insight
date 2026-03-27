@@ -3,140 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系統連線中</title>
+    <title>喚醒心中的巨人 - 訪問心得摘要</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap');
-        
-        body { 
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); 
-            margin: 0; 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column;
-            align-items: center; 
-            justify-content: center; 
-            color: #475569; 
-            font-family: 'Noto Sans TC', sans-serif; 
-            overflow: hidden; 
-            cursor: pointer; 
-            user-select: none; 
-        }
-
-        .container {
-            text-align: center;
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 2.5rem;
-            z-index: 10;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
-
-        .loader { 
-            width: 40px; 
-            height: 40px; 
-            border: 2px solid #e2e8f0; 
-            border-top: 2px solid #6366f1; 
-            border-radius: 50%; 
-            animation: spin 3s linear infinite; 
+        .container {
+            width: 100%;
+            max-width: 1000px; /* 根據您的圖片寬度調整 */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            line-height: 0;
         }
-
-        .main-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            color: #1e293b;
-            animation: bounceText 2s ease-in-out infinite;
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: none;
         }
-
-        .bg-circle {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 1;
-            animation: move 10s infinite alternate;
-        }
-
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        
-        @keyframes bounceText {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        @keyframes move {
-            from { transform: translate(-10%, -10%); }
-            to { transform: translate(10%, 10%); }
-        }
-
-        #footer-tag { 
-            position: absolute; 
-            bottom: 30px; 
-            font-size: 10px; 
-            letter-spacing: 2px;
-            color: #cbd5e1;
+        /* 讓鼠標移到感應區時顯示手指形狀 */
+        area {
+            cursor: pointer;
         }
     </style>
 </head>
-<body onclick="handleClick()">
-    <div class="bg-circle"></div>
+<body>
+
     <div class="container">
-        <div class="loader"></div>
-        <div class="main-text">請輸入密碼!</div>
+        <!-- 1. 圖片標籤：副檔名已改為 .png -->
+        <img src="喚醒心中的巨人.png" usemap="#image-map" alt="喚醒心中的巨人訪問心得摘要">
+
+        <!-- 2. 影像地圖定義 -->
+        <map name="image-map">
+            <!-- 定義點擊區域 -->
+            <area target="_blank" alt="點擊觀看摘要" title="點擊觀看摘要" href="https://chungpinglee.github.io/insight/%E6%89%98%E5%B0%BC.%E7%BE%85%E8%B3%93%E6%96%AF-github/index.html" coords="50,453,1353,712" shape="rect">
+        </map>
     </div>
-    <div id="footer-tag">SECURE ACCESS V4.1</div>
 
+    <!-- 3. 加入響應式修正腳本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
     <script>
-        let clicks = 0;
-        let lastClick = 0;
-        const _DATA = "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";
-        const _K = "SECRET_SESSION_PASS_6_CLICKS";
-        const SESSION_PASS_KEY = "global_secure_unlock_token";
-
-        window.onload = () => {
-            if (sessionStorage.getItem(SESSION_PASS_KEY) === "authorized") {
-                unlock(true);
-            }
+        window.onload = function() {
+            imageMapResize();
         };
-
-        function handleClick() {
-            const now = Date.now();
-            if (now - lastClick > 2000) clicks = 0;
-            clicks++;
-            lastClick = now;
-            if (clicks === 6) {
-                unlock(false);
-            }
-        }
-
-        async function unlock(isAuto) {
-            try {
-                const bin = atob(_DATA);
-                const bytes = new Uint8Array(bin.length);
-                for(let i=0; i<bin.length; i++) bytes[i] = bin.charCodeAt(i);
-                
-                const salt = bytes.slice(0, 16);
-                const iv = bytes.slice(16, 28);
-                const data = bytes.slice(28);
-                
-                const enc = new TextEncoder();
-                const keyMat = await crypto.subtle.importKey("raw", enc.encode(_K), "PBKDF2", false, ["deriveKey"]);
-                const key = await crypto.subtle.deriveKey(
-                    { name: "PBKDF2", salt, iterations: 1000, hash: "SHA-256" },
-                    keyMat, { name: "AES-GCM", length: 256 }, false, ["decrypt"]
-                );
-                
-                const decrypted = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, data);
-                sessionStorage.setItem(SESSION_PASS_KEY, "authorized");
-                
-                document.open();
-                document.write(new TextDecoder().decode(decrypted));
-                document.close();
-            } catch (e) {
-                console.error("解密失敗");
-            }
-        }
     </script>
+
 </body>
 </html>
