@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喚醒心中的巨人 - 訪問心得摘要</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 1000px; /* 根據您的圖片寬度調整 */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            line-height: 0;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: none;
+        }
+        /* 讓鼠標移到感應區時顯示手指形狀 */
+        area {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 1. 圖片標籤：副檔名已改為 .png -->
+        <img src="喚醒心中的巨人.png" usemap="#image-map" alt="喚醒心中的巨人訪問心得摘要">
+
+        <!-- 2. 影像地圖定義 -->
+        <map name="image-map">
+            <!-- 定義點擊區域 -->
+            <area target="_blank" alt="點擊觀看摘要" title="點擊觀看摘要" href="https://chungpinglee.github.io/insight/%E6%89%98%E5%B0%BC.%E7%BE%85%E8%B3%93%E6%96%AF-github/index.html" coords="50,453,1353,712" shape="rect">
+        </map>
+    </div>
+
+    <!-- 3. 加入響應式修正腳本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
+    <script>
+        window.onload = function() {
+            imageMapResize();
+        };
+    </script>
+
+</body>
+</html>

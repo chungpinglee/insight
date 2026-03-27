@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>托尼·羅賓斯 — 人生動力與 AI 時代生存指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: grab;
+            user-select: none;
+        }
+
+        .btn-card:active {
+            cursor: grabbing;
+        }
+
+        .btn-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 拖拽中的樣式 */
+        .dragging {
+            opacity: 0.5;
+            transform: scale(0.95);
+            border: 2px dashed #3b82f6;
+        }
+
+        .icon-box {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .bg-gradient-mesh {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.5) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(30, 58, 138, 0.3) 0px, transparent 50%);
+        }
+
+        /* 拖拽時的提示文字 */
+        .drag-hint {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="bg-gradient-mesh"></div>
+
+    <div class="max-w-4xl w-full">
+        <!-- 標題部分 -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">
+                托尼·羅賓斯 <span class="text-blue-500">Tony Robbins</span>
+            </h1>
+            <!-- 修改後的標題文字 -->
+            <p class="text-xl md:text-2xl text-slate-400 font-light">
+                人生動力與 AI 時代生存指南
+            </p>
+            <div class="w-24 h-1 bg-blue-600 mx-auto mt-6 rounded-full"></div>
+        </header>
+
+        <!-- 按鈕矩陣 - 容器 ID 用於 JS 選取 -->
+        <div id="draggable-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- YouTube 影片 -->
+            <div draggable="true" class="btn-card-wrapper">
+                <a href="https://youtu.be/Uwxnk8IXI0U?si=8TB439CkTlHhpFTF" target="_blank" class="btn-card glass-card p-6 rounded-2xl flex items-center group block h-full">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center text-2xl mr-6">
+                        <i class="fa-brands fa-youtube text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-1 group-hover:text-blue-400 transition-colors">觀看訪談影片</h2>
+                        <p class="text-slate-400 text-sm">前往 YouTube 觀看完整影片內容</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right ml-auto text-slate-600 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- 訪談摘要 (心智圖) -->
+            <div draggable="true" class="btn-card-wrapper">
+                <a href="訪談摘要.html" class="btn-card glass-card p-6 rounded-2xl flex items-center group block h-full">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center text-2xl mr-6" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                        <i class="fa-solid fa-sitemap text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-1 group-hover:text-purple-400 transition-colors">訪談摘要</h2>
+                        <p class="text-slate-400 text-sm">互動式心智圖，快速掌握核心邏輯</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right ml-auto text-slate-600 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- 逐字稿 -->
+            <div draggable="true" class="btn-card-wrapper">
+                <a href="東尼羅賓斯逐字稿.html" class="btn-card glass-card p-6 rounded-2xl flex items-center group block h-full">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center text-2xl mr-6" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);">
+                        <i class="fa-solid fa-file-lines text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-1 group-hover:text-emerald-400 transition-colors">閱讀逐字稿</h2>
+                        <p class="text-slate-400 text-sm">完整訪談文本整理與重點標註</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right ml-auto text-slate-600 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- 舉例集錦 -->
+            <div draggable="true" class="btn-card-wrapper">
+                <a href="舉例集錦.html" class="btn-card glass-card p-6 rounded-2xl flex items-center group block h-full">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center text-2xl mr-6" style="background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);">
+                        <i class="fa-solid fa-lightbulb text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-1 group-hover:text-rose-400 transition-colors">舉例集錦</h2>
+                        <p class="text-slate-400 text-sm">深度案例分析與實踐心得</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right ml-auto text-slate-600 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- PDF 簡報 -->
+            <div draggable="true" class="btn-card-wrapper">
+                <a href="東尼羅賓-pdf.pdf" target="_blank" class="btn-card glass-card p-6 rounded-2xl flex items-center group block h-full">
+                    <div class="icon-box w-16 h-16 rounded-xl flex items-center justify-center text-2xl mr-6" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                        <i class="fa-solid fa-file-pdf text-white"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold mb-1 group-hover:text-amber-400 transition-colors">PDF 簡報檔</h2>
+                        <p class="text-slate-400 text-sm">精美視覺化簡報，適合存檔閱讀</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right ml-auto text-slate-600 group-hover:text-white group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="drag-hint">
+            <i class="fa-solid fa-up-down-left-right mr-2"></i> 長按或拖曳可調整順序
+        </div>
+
+        <footer class="mt-16 text-center text-slate-500 text-sm">
+            <p>© 2024 托尼·羅賓斯訪談研究彙整</p>
+            <p class="mt-2">"看見什麼，你就活在什麼裡，你決定做什麼。"</p>
+        </footer>
+    </div>
+
+    <script>
+        // 拖拽功能實現
+        const grid = document.getElementById('draggable-grid');
+        let dragItem = null;
+
+        grid.addEventListener('dragstart', (e) => {
+            dragItem = e.target.closest('.btn-card-wrapper');
+            setTimeout(() => e.target.closest('.btn-card-wrapper').classList.add('dragging'), 0);
+        });
+
+        grid.addEventListener('dragend', (e) => {
+            e.target.closest('.btn-card-wrapper').classList.remove('dragging');
+            dragItem = null;
+        });
+
+        grid.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(grid, e.clientY);
+            const dragging = document.querySelector('.dragging');
+            if (afterElement == null) {
+                grid.appendChild(dragging);
+            } else {
+                grid.insertBefore(dragging, afterElement);
+            }
+        });
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.btn-card-wrapper:not(.dragging)')];
+
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        // 行動端支援模擬
+        grid.addEventListener('touchstart', handleTouchStart, { passive: false });
+        let activeTouchItem = null;
+
+        function handleTouchStart(e) {
+            if (e.target.closest('.btn-card-wrapper')) {
+                activeTouchItem = e.target.closest('.btn-card-wrapper');
+            }
+        }
+    </script>
+</body>
+</html>

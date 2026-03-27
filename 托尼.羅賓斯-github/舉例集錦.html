@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東尼·羅賓斯訪談：精選舉例與深度心得</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #e67e22;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 10px;
+        }
+
+        /* 控制按鈕 */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .btn-control {
+            padding: 8px 20px;
+            border: 1px solid #e67e22;
+            background: white;
+            color: #e67e22;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+        .btn-control:hover {
+            background: #e67e22;
+            color: white;
+        }
+
+        .category-section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            background-color: #2c3e50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1.3em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        /* 風琴式方塊 */
+        .example-block {
+            margin: 12px 0;
+            border: 1px solid #eee;
+            border-left: 6px solid #e67e22;
+            background-color: #fff;
+            border-radius: 0 8px 8px 0;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* 標題區域 */
+        .example-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            background-color: #fff;
+            transition: all 0.3s ease; 
+        }
+
+        /* 滑鼠懸停效果 */
+        .example-header:hover {
+            background-color: #dcfce7; /* 淡綠色填滿 */
+        }
+        .example-header:hover .example-title {
+            transform: scale(1.15); /* 文字放大 15% */
+            transform-origin: left center;
+        }
+
+        .example-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #d35400;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .chevron {
+            transition: all 0.3s ease;
+            color: #bdc3c7;
+        }
+
+        /* 內容區域 */
+        .example-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 25px;
+        }
+
+        /* 展開狀態 */
+        .example-block.active {
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.15);
+            border-left-color: #10b981;
+        }
+        .example-block.active .example-header {
+            background-color: #10b981; /* 標題變綠色 */
+        }
+        .example-block.active .example-title {
+            color: white; /* 文字變白色 */
+            transform: scale(1);
+        }
+        .example-block.active .chevron {
+            transform: rotate(180deg);
+            color: white;
+        }
+        .example-block.active .example-content {
+            max-height: 3000px; 
+            padding-bottom: 30px;
+        }
+
+        .original-text {
+            color: #34495e;
+            text-align: justify;
+            white-space: pre-wrap;
+            margin-bottom: 25px;
+            font-size: 1em;
+            padding-top: 20px;
+            border-top: 1px solid #f9f9f9;
+            line-height: 1.8;
+        }
+
+        /* 心得區塊 - 淡綠色填滿 */
+        .analysis-block {
+            background-color: #f0fdf4; 
+            border: 1px solid #dcfce7;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .analysis-label {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .analysis-content {
+            font-size: 1.05em;
+            color: #1e293b;
+            text-align: justify;
+        }
+        .analysis-content p {
+            margin-bottom: 12px;
+        }
+        .analysis-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #95a5a6;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        strong {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>東尼·羅賓斯訪談：精選舉例與心得</h1>
+
+    <!-- 全局控制按鈕 -->
+    <div class="controls">
+        <button class="btn-control" onclick="toggleAll(true)"><i class="fas fa-expand-alt mr-2"></i> 全部展開</button>
+        <button class="btn-control" onclick="toggleAll(false)"><i class="fas fa-compress-alt mr-2"></i> 全部收闔</button>
+    </div>
+
+    <!-- 類別一 -->
+    <div class="category-section">
+        <h2>一、 個人生命轉折與家庭故事</h2>
+        
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">1. 童年感恩節：兩袋雜貨與一隻火雞</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">這是一個他講了 50 年的故事。當年他在鐵軌旁邊的小鎮長大，感恩節那天家裡完全沒有食物，父母正隔著門互相尖叫指責。突然有人敲門，門外站著一個陌生人，兩手各提著滿滿一袋雜貨，腳邊的平底鍋裡還放著一隻碩大的冷凍火雞。陌生人客氣地說：「有人知道你們的難處，想讓你們好好過個節，我只是個送貨的，聖誕快樂。」
+
+然而，他父親的反應出乎所有人的預料。父親憤怒地看了一眼那些食物，不僅沒有感謝，反而感到極大的羞辱。他對陌生人吼道：「我們不需要施捨！」然後當著對方的面，「砰」的一聲重重關上了門。父親那天看見的是「羞恥」，他解讀為：「我連家人都養不活，我的人生毫无價值。」他在那個下午不斷重複這句咒語。
+
+而當時站在父親身後的東尼看見了什麼？他腦中只有一個念頭：「哇！有食物吃！而且這是一個陌生人帶來的！」一個完全素不相識的人，在感恩節願意主動照顧另一個家庭，且不求任何回報。在那一刻，東尼心底的世界性質改變了——這個世界並非父親所說的充滿敵意與匱乏，而是一個陌生人可以無私關心另一個陌生人的溫暖之地。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這段故事深刻揭示了<strong>「事件本身沒有意義，除非我們賦予它意義」</strong>。同樣的一隻火雞，在父親眼中代表了「無能與羞辱」，而在東尼眼中則象徵了「善意與希望」。</p>
+                        <p>這說明了決定命運的不是環境，而是我們的<strong>解讀規則</strong>。父親的規則是「接受施捨等於失敗」，導致他封閉心靈；東尼的規則是「世界充滿奇蹟」，這讓他學會了感恩。在生活中，我們是否也常因為負面的解讀規則，而將送上門的機會（火雞）拒之門外？</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">2. 17 歲的匿名捐贈：從受助者到敲門的人</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">當東尼 17 歲時，他一個人在外打拼做清潔工，收入僅能糊口。在那一年的感恩節，他做了一個大膽的決定：他用僅有的錢去超市買了兩份豐盛的食物，透過當地教堂要到了兩個從不主動求助的貧困家庭地址。
+
+他親自開車送過去，在門口留下紙條寫著：「這是一位朋友送的禮物，每個人都會經歷艱難時刻，希望有一天你也能把這份善意傳遞下去。」其中一家是一個西班牙裔的小家庭，擠在一個極其侷促的空間裡。當女主人打開門看到滿地的食物和那隻南瓜派時，她發出了驚喜的尖叫，五個孩子瘋狂地衝出來，甚至因為太過興奮差點把他撞倒。
+
+東尼後來得知，那家的父親在四天前剛剛拋棄了家人，留下他們自生自滅。東尼回到車裡後對著後照鏡失聲痛哭。在那一刻，他人生中最糟糕的一天（童年那次被父親關上的門）變成了最好的一天，因為他完成了從「受助者」到「捐助者」的心理躍遷，他對自己說：「總有一天，我要成為那個敲門的人。」</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這是一個關於<strong>「身份重塑」</strong>的極致案例。東尼透過「給予」，將自己的身份從「貧窮的受害者」轉變為「價值的創造者」。</p>
+                        <p>當我們陷入自我憐憫時，最好的治癒方式就是透過<strong>貢獻（Contribution）</strong>。當你的注意力從「我缺乏什麼」轉向「我能為別人提供什麼」時，匱乏的心理結構會瞬間瓦解。東尼告訴我們，痛苦不應該是終點，而應該是驅動你成為理想角色的燃料。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">3. 遇見吉姆·羅恩：35 美元的門票與貸款</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">那時東尼住在車裡，靠著微薄的清潔工薪水過活，每週只能掙到 40 美元。一位朋友告訴他，有一個叫吉姆·羅恩的人能改變命運。他去參加講座，門票要 35 美元，那是他幾乎整週的生活費。雖然極度掙扎，他還是付了這筆錢。
+
+講座結束後，東尼深受震撼，直接走上台對羅恩說：「我想為你工作，我想學習你的一切。」羅恩卻冷靜地回答，如果真的想學，必須參加為期一個週末的進階課程，學費是 1200 美元。
+
+在那時這簡直是天文數字。東尼沒有放棄，他連續去了六家銀行申請貸款。前五家銀行一聽他的財富狀況就直接拒絕了他，甚至有些行員嘲笑他瘋了。直到第六家銀行，他遇到了一位願意聽他傾訴願景的女性經理，她被東尼的誠意打動，個人擔保借給了他這筆改變一生的學費。這讓他真正理解到：如果你的願景夠大，資源總會出現在第六個轉角。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這啟發了兩層思考：第一是<strong>「投資自我是回報率最高的投資」</strong>。在極度貧困時花掉 90% 的週薪去聽演講，展現了對成長的渴望。第二是<strong>「市場獎勵價值」</strong>的核心觀念。</p>
+                        <p>大多數人努力工作卻依然貧窮，是因為他們只提供時間，而非價值。解決經濟困境的關鍵不是找更多工作，職能透過學習讓自己變得<strong>不可取代</strong>。同時，東尼跑了六家銀行才借到錢，也提醒我們：當你決定追求價值時，資源並非不存在，而是考驗你尋找它的韌性。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 類別二 -->
+    <div class="category-section">
+        <h2>二、 技術革命與社會變遷警示</h2>
+        
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">1. 與奧巴馬談自動駕駛與失業</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">在奧巴馬任期將近結束時，東尼曾當面與他進行過深度交流。他開門見山地說：「總統，我們需要談談自動駕駛，這不只是科技問題，是生存問題。」東尼算了一筆帳：全美有超過 800 萬名卡車、出租車與城市司機。
+
+他問奧巴馬，如果你是一個企業主，你雇用一名司機，他每天只能開 8 小時，你需要付他高昂的醫保，他還會疲勞、分心甚至辭職。或者，你可以選擇買一輛自動駕駛卡車，它能 24 小時不眠不休地工作，不需要保險和假期，更重要的是，它能產生折舊抵稅，整體運營成本低得驚人。
+
+「你會怎麼選？」東尼問道。現實是殘酷的，企業主別無選擇。他當時最擔心的問題只有一個：政府是否意識到，這 800 萬人將在極短的時間內同時失去生計，而我們完全沒有足夠的重新培訓方案來接住他們。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>技術發展是無情的，它不考慮社會情感，只考慮<strong>資本效率</strong>。這個舉例揭露了未來十年勞動力市場的殘酷現實：任何「可重複、基於邏輯或體力」的勞動都將面臨毀滅性的替代。</p>
+                        <p>這不是危言聳聽，而是警示我們必須將自己的技能鏈條，從「執行層面」提升到「情感連結」或「創造層面」。當機器能開車、能搬運時，<strong>「人的獨特性」</strong>才是唯一的溢價所在。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">2. 歷史案例：工業革命與技術替代</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">東尼回溯了 19 世紀英國工業革命的案例。當時自動織布機出現，工人們因為恐懼失業而發起「盧德運動」，憤怒地衝進工廠用鐵錘砸毀機器。15 年後，農業領域出現了脫粒機，農業工人大規模失業，同樣的暴亂再次上演。
+
+歷史告訴我們，技術進步從未停止腳步。每一次革命都讓一代人在毫無準備的情況下撞上堅硬的牆，然後社會被迫用幾十年的時間去調整結構，再讓下一代適應新模式。
+
+但他強調這一次 AI 革命完全不同。過去的變革給了我們「幾十年」的緩衝期，但這一次，通用人工智能（AGI）的實現可能就在未來的 3 到 10 年內。這意味著痛苦將在極短的時間內爆發，人類將失去「慢慢適應」的奢侈。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>東尼強調了這一次革命的本質區別：<strong>時間感的消失</strong>。過去可能有幾十年的適應期，現在只有幾年。這意味著「終身學習」不再是一個選擇，而是一項<strong>生存本能</strong>。</p>
+                        <p>我們不能再期待一個技能可以用一輩子。在舊秩序瓦解之前，我們必須主動識別新秩序。憤怒地砸毀機器（拒絕 AI）無濟於事，學會駕馭機器才是唯一的出路。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 類別三 -->
+    <div class="category-section">
+        <h2>三、 人類心理與底層需求案例</h2>
+        
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">1. 重要性需求的兩極：暴徒與英雄</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">東尼用了一個非常鮮明的對比來說明人類對「重要性（Significance）」的病態與健康追求。
+
+想像一個在街頭用槍指著路人頭顱的歹徒。那一刻，他是全世界最「重要」的人，所有人都看著他，所有人都在顫抖，他前所未有地掌控了別人的生死。這種破壞性的行為讓他瞬間獲得了極大的重要性回饋。
+
+再看看 911 恐怖襲擊那天的警察和消防員。他們明知大樓隨時會塌，依然選擇逆行衝進火場。驅動他們的是什麼？同樣是重要性——「以英雄的方式死去，我的生命才有意義」。這兩者背後的心理需求完全一致，但由於內心的「規則（Rule）」不同，一個導向毀滅，一個導向崇高。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>「需求」是中性的，但<strong>「規則」決定了人生的層次</strong>。每個人都需要感覺自己是特殊的、被需要的。但實現這個需求的路徑卻決定了天堂與地獄。</p>
+                        <p>有些人透過「破壞」來彰顯自己，因為破壞比建設快得多。這邀請我們檢視自己：我正在用什麼規則滿足核心需求？我是透過成就他人獲得重要性，還是透過掌控他人獲得重要性？</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">2. 頂級名人的空虛與憤怒</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">身為許多好萊塢巨星、頂尖運動員的私人教練，東尼聽過太多類似的抱怨。這些客戶往往走在街上會被萬人尖叫擁護，但回到家後卻感到深沉的憤怒和寂寞。
+
+他們對東尼坦言，他們原本以為「變得足夠重要、足夠有名」之後，全世界就會愛他們。但結果恰恰相反：粉絲在他們吃飯時衝過來要求合影，大眾在網上隨意攻擊他們的私生活。人們只關心他們能帶來的商業價值，卻沒有人在乎他們是誰。他們發現，自己拼盡全力爬到了重要性的頂峰，卻發現那裡竟然是「愛」的荒原。這種心理落差導致了極大的空虛感。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這是現代人最常見的悲劇：<strong>試圖用「成功」去交換「愛」</strong>。我們拼命工作、追求地位，潛意識裡是希望有人能因此愛我們。</p>
+                        <p>然而，「重要性」與「連結感」是兩個完全不同的維度。重要性伴隨著距離感，而愛需要脆弱與真實。這啟發我們要學會分離這兩者：追求卓越是為了實現價值，但要獲得愛，請回到真實的連結中。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 類別四 -->
+    <div class="category-section">
+        <h2>四、 商業投資與財富觀念</h2>
+        
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">1. 2008 年金融危機：非對稱風險下注</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">東尼採訪過一名在 2008 年房地產崩盤中獲利數十億美元的投資家。那人曾用 2500 萬美元的資本撬動了超過 20 億美元的利潤。東尼驚訝地問：「你怎麼敢冒這麼大的險？」
+
+對方的回答徹底重塑了東尼的觀念：「東尼，你錯了。我從不冒險。我每次下注，都要求自己最多只承受 1 分錢的風險，但預期要賺回 1 美元。這叫非對稱風險（Asymmetric Risk）。」這意味著他可以連續錯九次，只要對了一次，他依然是大贏家。
+
+他同時指出，那些自認最聰明的投資者往往是最糟糕的，因為他們總在等待「絕對的確定性」，要把所有資訊都研究透徹才敢行動。但等所有的燈都變綠時，機會的大門早已關上了。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這不僅是投資技巧，更是<strong>「決策哲學」</strong>。真正的成功不是來自於不犯錯，而是來自於建立一個<strong>「容錯率極高」</strong>的體系。在這種體系下，失敗的代價很小，但成功的收益卻是巨大的。</p>
+                        <p>過度分析是行動的敵人。在 AI 時代，資訊是無限的，等待絕對確定性只會導致平庸。我們需要的是在資訊不足時，判斷風險回報比並果斷行動的勇氣。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">2. iPhone 的消費與所有權計算</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">東尼在訪談現場給主持人算了一道震撼的算術題。
+
+從 iPhone 第一代上市那天開始，如果你是一個狂熱的消費者，每次出新款就立刻更換一部，這些年來你在手機上的支出總額大約是 22,000 美元（包括通訊費用）。
+
+但是，如果你在那天決定不只是當消費者，而是將同樣的這筆錢同時買入蘋果（Apple）的股票。那麼到了今天，那些股票的價值大約是 326,000 美元。東尼強調這不是投資建議，而是一個根本的思維模型切換：你決定這輩子是為別人的產品買單，還是決定成為這個時代最優秀產品的「共同擁有人」？這種從「消耗」到「擁有」的切換，才是貧富差距的根源。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這個例子精準打擊了我們的<strong>「消費者思維」</strong>。我們每天都在為別人的夢想買單，卻很少思考如何分享這份成長。這不僅是關於複利，更是關於<strong>「資產與負債」</strong>的根本切換。</p>
+                        <p>如果你使用一種產品且它正在改變世界，那麼你應該嘗試成為它的擁有者，而非單純的消耗者。這種身份的切換決定了你是在為金錢工作，還是讓金錢為你工作。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 類別五 -->
+    <div class="category-section">
+        <h2>五、 終局思維與遺產</h2>
+        
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">1. 新冠禮物：四歲的女兒</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">東尼分享了一個溫暖的私人故事。他有一個四歲的女兒，是在新冠肺炎全球封控期間，原本不在計畫中卻意外到來的驚喜。他感性地說，這是新冠封鎖期間給他最好的「禮物」。
+
+在那段全世界都停擺的時間裡，他獲得了前所未有的家庭時光，親眼見證了新生命的誕生與成長。這份禮物徹底改變了他的生命動力——現在的他必須致力於活得更久、更健康，不僅是為了事業，更是為了能有足夠的時間陪伴她長大。這份意外的驚喜讓他從宏大的全球願景，重新連結到了最純粹的父愛。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這反映了<strong>生命中不可控的力量如何轉化為禮物</strong>。即便像東尼這樣的大師也會遭遇全球性的疫情封鎖，但他選擇從中看見珍貴的家庭時光。</p>
+                        <p>這提醒我們：在最糟糕的環境中，生命總會以某種形式綻放。當外部世界崩潰時，往往是內在世界（家庭、愛、自我成長）重新扎根的最佳時機。關鍵在於我們是否有足夠的敏感度去擁抱這份「包裝成災難的禮物」。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-block">
+            <div class="example-header">
+                <span class="example-title">2. AI 翻譯與心理治療平台</span>
+                <i class="fas fa-chevron-down chevron"></i>
+            </div>
+            <div class="example-content">
+                <div class="original-text">東尼正在和一個尖端團隊合作，利用 AI 建立一個強大的心理干預和治療平台。這個平台旨在覆蓋超過 50 種語言，將東尼五十多年來整合的所有心理干預模型數位化。
+
+他說，全世界根本沒有足夠多的實體治療師能覆蓋所有需要心理幫助的人，但 AI 技術可以把這個巨大的缺口填補上。他強調做這件事不是為了繼續賺錢，也不是為了出名，而是因為他意識到自己終有一天會離開，而這套「數位大腦」可以讓他的智慧在他不在場的情況下，繼續幫助百萬人度過生命中的黑暗。這就是他對「遺產（Legacy）」這個詞最新的定義——不再是名聲，而是持續運作的服務。</div>
+                <div class="analysis-block">
+                    <div class="analysis-label">心得：</div>
+                    <div class="analysis-content">
+                        <p>這是「數位不朽」與「普世價值」的結合。東尼將自己的五十年的心法透過技術大規模化，重新定義了影響力的深度。</p>
+                        <p><strong>真正的遺產不取決於個人是否在場</strong>，而取決於你留下的系統能否持續解決他人的痛苦。這啟發我們思考：除了眼前的利益，我們是否在建構某種能跨越時間的東西？在 AI 時代，我們比歷史上任何人都更有機會留下真正有意義的影響力遺產。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <!-- 內容專注於深度分析 -->
+    </div>
+</div>
+
+<script>
+    const items = document.querySelectorAll('.example-block');
+
+    items.forEach(item => {
+        const header = item.querySelector('.example-header');
+        
+        header.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // 先關閉所有其他項目 (風琴式自動收闔)
+            items.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // 展開當前項目
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // 全部展開/收闔功能
+    function toggleAll(expand) {
+        items.forEach(item => {
+            if (expand) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
